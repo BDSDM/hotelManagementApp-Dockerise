@@ -1,0 +1,58 @@
+<div class="rooms-container">
+  <h2>Gestion des Chambres</h2>
+  <button mat-raised-button color="primary" (click)="openDialog()">
+    + Ajouter une chambre
+  </button>
+
+  <mat-table
+    [dataSource]="rooms"
+    class="mat-elevation-z8"
+    *ngIf="rooms.length > 0"
+  >
+    <ng-container matColumnDef="number">
+      <mat-header-cell *matHeaderCellDef> Numéro </mat-header-cell>
+      <mat-cell *matCellDef="let room"> {{ room.number }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="type">
+      <mat-header-cell *matHeaderCellDef> Type </mat-header-cell>
+      <mat-cell *matCellDef="let room"> {{ room.type }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="price">
+      <mat-header-cell *matHeaderCellDef> Prix (€) </mat-header-cell>
+      <mat-cell *matCellDef="let room"> {{ room.price }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="available">
+      <mat-header-cell *matHeaderCellDef> Disponibilité </mat-header-cell>
+      <mat-cell *matCellDef="let room">
+        <mat-chip [color]="room.available ? 'primary' : 'warn'" selected>
+          {{ room.available ? "Disponible" : "Occupée" }}
+        </mat-chip>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
+      <mat-cell *matCellDef="let room">
+        <button mat-icon-button color="accent" (click)="openDialog(room)">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button color="warn" (click)="deleteRoom(room.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row
+      *matHeaderRowDef="['number', 'type', 'price', 'available', 'actions']"
+    ></mat-header-row>
+    <mat-row
+      *matRowDef="
+        let row;
+        columns: ['number', 'type', 'price', 'available', 'actions']
+      "
+    ></mat-row>
+  </mat-table>
+</div>

@@ -1,0 +1,38 @@
+<div class="home-container">
+  <div class="welcome-message">
+    <h2>Bienvenue {{ userName }} !</h2>
+    <p>
+      Nous sommes ravis de vous accueillir sur notre site de réservation
+      d'hôtel.
+    </p>
+  </div>
+
+  <h2>Nos chambres</h2>
+  <div class="rooms-grid">
+    <div class="room-card" *ngFor="let room of rooms">
+      <h3>Chambre {{ room.number }}</h3>
+      <p>Type : {{ room.type }}</p>
+      <p>Prix : {{ room.price }}€ / nuit</p>
+
+      <!-- Affichage de la disponibilité -->
+      <p *ngIf="room.available; else reserved">Disponibilité : ✅ Disponible</p>
+      <ng-template #reserved>
+        <p>Disponibilité : ❌ Occupée</p>
+      </ng-template>
+
+      <!-- ✅ Bouton Réserver si la chambre est disponible -->
+      <button *ngIf="room.available" (click)="openBookingDialog(room)">
+        Réserver
+      </button>
+
+      <!-- ✅ Bouton Annuler si la chambre est occupée -->
+      <button
+        *ngIf="!room.available"
+        (click)="cancelBooking(room.bookingId)"
+        class="cancel-button"
+      >
+        Annuler
+      </button>
+    </div>
+  </div>
+</div>

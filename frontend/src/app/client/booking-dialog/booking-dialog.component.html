@@ -1,0 +1,41 @@
+<form [formGroup]="bookingForm" (ngSubmit)="onConfirm()" class="form-container">
+  <mat-form-field appearance="fill">
+    <mat-label>Date d'arrivée</mat-label>
+    <input
+      matInput
+      [matDatepicker]="checkInPicker"
+      formControlName="checkInDate"
+    />
+    <mat-datepicker-toggle
+      matSuffix
+      [for]="checkInPicker"
+    ></mat-datepicker-toggle>
+    <mat-datepicker #checkInPicker></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Date de départ</mat-label>
+    <input
+      matInput
+      [matDatepicker]="checkOutPicker"
+      formControlName="checkOutDate"
+    />
+    <mat-datepicker-toggle
+      matSuffix
+      [for]="checkOutPicker"
+    ></mat-datepicker-toggle>
+    <mat-datepicker #checkOutPicker></mat-datepicker>
+  </mat-form-field>
+
+  <div class="actions">
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="bookingForm.invalid"
+    >
+      Réserver
+    </button>
+    <button mat-raised-button (click)="onCancel()">Annuler</button>
+  </div>
+</form>

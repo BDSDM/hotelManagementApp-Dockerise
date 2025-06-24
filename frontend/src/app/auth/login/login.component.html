@@ -1,0 +1,64 @@
+<div class="login-container">
+  <mat-card class="login-card">
+    <!-- Bouton de fermeture positionné en haut à droite -->
+    <button
+      mat-icon-button
+      color="warn"
+      mat-dialog-close
+      class="close-button"
+      aria-label="Fermer"
+    >
+      <mat-icon>cancel</mat-icon>
+    </button>
+
+    <h2>Connexion</h2>
+
+    <!-- Formulaire de connexion -->
+    <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Email</mat-label>
+        <input
+          matInput
+          type="email"
+          name="email"
+          [(ngModel)]="email"
+          required
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Mot de passe</mat-label>
+        <input
+          matInput
+          type="password"
+          name="password"
+          [(ngModel)]="password"
+          required
+        />
+      </mat-form-field>
+
+      <button
+        mat-raised-button
+        color="primary"
+        class="full-width"
+        type="submit"
+        [disabled]="!loginForm.form.valid"
+      >
+        Se connecter
+      </button>
+    </form>
+
+    <div class="login-links">
+      <a (click)="openRegisterDialog()" style="cursor: pointer"
+        >Pas encore membre ? Inscrivez-vous</a
+      ><br />
+      <a (click)="changePassword()" style="cursor: pointer">
+        Mot de passe oublié ?
+      </a>
+    </div>
+
+    <div *ngIf="loginError" class="error-message">
+      Identifiant ou mot de passe incorrect.
+    </div>
+  </mat-card>
+</div>

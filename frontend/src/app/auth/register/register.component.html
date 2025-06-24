@@ -1,0 +1,56 @@
+<h2>Inscription</h2>
+
+<form #form="ngForm" (ngSubmit)="register()">
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Nom</mat-label>
+    <input matInput [(ngModel)]="user.name" name="name" required />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Email</mat-label>
+    <input
+      matInput
+      type="email"
+      [(ngModel)]="user.email"
+      name="email"
+      required
+    />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Mot de passe</mat-label>
+    <input
+      matInput
+      type="password"
+      [(ngModel)]="user.password"
+      name="password"
+      required
+    />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Confirmer mot de passe</mat-label>
+    <input
+      matInput
+      type="password"
+      [(ngModel)]="confirmPassword"
+      name="confirmPassword"
+      required
+    />
+  </mat-form-field>
+
+  <div class="actions">
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="!form.valid || user.password !== confirmPassword"
+    >
+      S’inscrire
+    </button>
+    <button mat-button type="button" (click)="close()">Annuler</button>
+  </div>
+
+  <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+  <p class="success" *ngIf="successMessage">{{ successMessage }}</p>
+</form>

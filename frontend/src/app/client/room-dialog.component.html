@@ -1,0 +1,25 @@
+<h1 mat-dialog-title>
+  {{ form.value.id ? "Modifier Chambre" : "Ajouter Chambre" }}
+</h1>
+
+<div mat-dialog-content [formGroup]="form">
+  <mat-form-field class="full-width">
+    <mat-label>Numéro</mat-label>
+    <input matInput formControlName="number" />
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <mat-label>Type</mat-label>
+    <input matInput formControlName="type" />
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <mat-label>Prix (€)</mat-label>
+    <input type="number" matInput formControlName="price" />
+  </mat-form-field>
+</div>
+
+<div mat-dialog-actions align="end">
+  <button mat-button (click)="onCancel()">Annuler</button>
+  <button mat-raised-button color="primary" (click)="onSave()">Valider</button>
+</div>

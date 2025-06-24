@@ -1,0 +1,42 @@
+.full-width {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+mat-slide-toggle {
+  margin-top: 20px;
+  display: block;
+}
+
+.availability-status {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  font-size: 14px;
+  color: #444;
+}
+
+.availability-status mat-icon {
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+mat-dialog-actions {
+  margin-top: 20px;
+}
+
+button[mat-button],
+button[mat-raised-button] {
+  margin-left: 8px;
+  transition: background-color 0.3s ease;
+}
+
+button[mat-button]:hover {
+  background-color: #f0f0f0;
+}
+
+button[mat-raised-button]:hover {
+  background-color: #1565c0; /* un bleu foncé plus visible */
+  color: white;
+}

@@ -1,0 +1,35 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-card {
+  position: relative; /* Nécessaire pour que .close-button fonctionne */
+  padding: 2rem;
+  width: 100%;
+  max-width: 400px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.login-links {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.error-message {
+  color: red;
+  margin-top: 1rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Style du bouton de fermeture */
+.close-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}

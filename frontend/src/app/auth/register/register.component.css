@@ -1,0 +1,79 @@
+/* Conteneur du formulaire */
+form {
+  max-width: 500px;
+  margin: 5vh auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Titre */
+h2 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+
+/* Champs de formulaire */
+.full-width {
+  width: 100%;
+}
+
+mat-form-field {
+  font-size: 1rem;
+}
+
+/* Actions (boutons) */
+.actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.actions button {
+  flex: 1;
+  font-weight: 600;
+}
+
+/* Messages */
+.error,
+.success {
+  text-align: center;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+}
+
+.error {
+  background-color: #ffe6e6;
+  color: #c0392b;
+  border: 1px solid #e74c3c;
+}
+
+.success {
+  background-color: #e6fff2;
+  color: #27ae60;
+  border: 1px solid #2ecc71;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  form {
+    padding: 1.5rem;
+    margin: 2vh 1rem;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+
+  .actions button {
+    width: 100%;
+  }
+}
